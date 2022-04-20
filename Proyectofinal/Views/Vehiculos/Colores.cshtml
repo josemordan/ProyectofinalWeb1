@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Modelos.Vehiculos.Color>
+
+@{
+    ViewBag.Title = "Colores";
+}
+<center>
+    <h2>Colores</h2>
+
+    <p>
+        @Html.ActionLink("Nuevo Color", "InsertarColor", null, new { @class = "btn btn-success" })
+    </p>
+</center>
+<div style="padding-left: 290px; padding-right: 290px">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "ModificarColor", new { id = item.ID }, new { @class = "btn btn-warning" }) |
+                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("Eliminar", "EliminarColor", new { id = item.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

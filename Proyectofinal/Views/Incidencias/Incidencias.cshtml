@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Modelos.Incidencias.Incidencia>
+
+@{
+    ViewBag.Title = "Incidencias";
+}
+<center>
+    <h2>Incidencias</h2>
+
+    <p>
+        @Html.ActionLink("Nueva Incidencia", "InsertarIncidencia", null, new { @class = "btn btn-success" })
+    </p>
+</center>
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vehiculo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Taller)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th>
+                    @Html.DisplayName("Fecha Entrada")
+                </th>
+                <th>
+                    @Html.DisplayName("Fecha Salida")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Completada)
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vehiculo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Taller)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Entrada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Salida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Completada)
+                </td>
+                <td>
+                    @{
+                        if (!item.Completada)
+                        {
+                            @Html.ActionLink("Editar", "ModificarIncidencia", new { id = item.ID }, new { @class = "btn btn-warning" }) 
+                        }
+                    }
+
+                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("Eliminar", "EliminarIncidencia", new { id = item.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

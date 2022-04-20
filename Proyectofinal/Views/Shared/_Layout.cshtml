@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Proyecto Final </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            @Html.ActionLink("Proyecto Final Web 1", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vehiculos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarColor","Vehiculos")">Nuevo Color</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Colores","Vehiculos")">Colores</a>
+                            <div class="dropdown-divider"></div>
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarMarca","Vehiculos")">Nueva Marca</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Marcas","Vehiculos")">Marcas</a>
+                            <div class="dropdown-divider"></div>
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarModelos","Vehiculos")">Nuevo Modelo</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Modelos","Vehiculos")">Modelos</a>
+                            <div class="dropdown-divider"></div>
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarVehiculo","Vehiculos")">Nuevo Vehiculo</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Vehiculos","Vehiculos")">Vehiculos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Empleados
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarCargo","Empleados")">Nuevo Cargo</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Cargos","Empleados")">Cargos</a>
+                            <div class="dropdown-divider"></div>
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarDepartamento","Empleados")">Nuevo Departamento</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Departamentos","Empleados")">Departamentos</a>
+                            <div class="dropdown-divider"></div>
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarEmpleado","Empleados")">Nuevo Empleado</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Empleados","Empleados")">Empleados</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Incidencias
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarCargo","Empleados")">Nuevo Cargo</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Talleres","Incidencias")">Talleres</a>
+                            <div class="dropdown-divider"></div>
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarDepartamento","Empleados")">Nuevo Departamento</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Incidencias","Incidencias")">Incidencias</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Clientes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*<a class="dropdown-item" href="@Url.Action("InsertarCargo","Empleados")">Nuevo Cargo</a>*@
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Clientes","Clientes")">Clientes</a>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Entregas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Prioridades","Entregas")">Prioridades</a>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="@Url.Action("Entregas","Entregas")">Entregas</a>
+                            <div class="dropdown-divider"></div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                            <img src="~/Content/img/usuario.png" style="height:20px" />
+                            @if (Session["Usuario"] != null)
+                            {
+                                @Proyectofinal.LoginHelper.NombreUsuario;
+                            }
+                            <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="@Url.Content("~/Login/Logout")">Cerrar Sesión</a>
+
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @if (ViewData["ERROR"] != null)
+    {
+        <div class="container">
+            <div class="alert alert-danger">
+                @ViewData["ERROR"]
+            </div>
+        </div>
+    }
+    @if (ViewData["GOOD"] != null)
+    {
+
+        <div class="container">
+            <div class="alert alert-success">
+                @ViewData["GOOD"]
+            </div>
+        </div>
+    }
+    @if (ViewData["INFO"] != null)
+    {
+
+        <div class="container">
+            <div class="alert alert-info">
+                @ViewData["INFO"]
+            </div>
+        </div>
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Grupo #4</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

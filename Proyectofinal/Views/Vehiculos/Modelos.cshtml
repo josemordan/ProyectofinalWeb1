@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Modelos.Vehiculos.Modelo>
+
+@{
+    ViewBag.Title = "Modelos";
+}
+<center>
+    <h2>Modelos</h2>
+
+    <p>
+        @Html.ActionLink("Nuevo Modelo", "InsertarModelos", null, new { @class = "btn btn-success" })
+    </p>
+</center>
+<div style="padding-left: 290px; padding-right: 290px">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>Marca</th>
+                <th></th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "ModificarModelo", new { id = item.ID }, new { @class = "btn btn-warning" }) |
+            @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
+            @Html.ActionLink("Eliminar", "EliminarModelo", new { id = item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>

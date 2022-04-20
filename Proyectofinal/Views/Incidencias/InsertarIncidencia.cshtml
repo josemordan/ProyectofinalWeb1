@@ -1,0 +1,85 @@
+﻿@model Modelos.Incidencias.Incidencia
+
+@{
+    ViewBag.Title = "InsertarIncidencia";
+}
+
+<center>
+    <h2>Registrar Incidencia</h2>
+</center>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    <div class="row" style="padding-left:400px">
+        <div class="col-md-6 col-lg-6">
+            <dl class="dl-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Vehiculo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @{
+                            if (Model.Vehiculos != null)
+                            {
+                                @Html.DropDownListFor(model => model.VehiculoID, Model.Vehiculos.Select(s => new SelectListItem { Value = s.ID.ToString(), Text = s.Chasis.ToString() }), new { htmlAttributes = new { @class = "form-control" } })
+                            }
+                        }
+                        @Html.ValidationMessageFor(model => model.VehiculoID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Taller, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @{
+                            if (Model.Talleres != null)
+                            {
+                                @Html.DropDownListFor(model => model.TallerID, Model.Talleres.Select(s => new SelectListItem { Value = s.ID.ToString(), Text = s.Nombre.ToString() }), new { htmlAttributes = new { @class = "form-control" } })
+                            }
+                        }
+                        @Html.ValidationMessageFor(model => model.TallerID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Fecha Entrada", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fecha_Entrada, new { htmlAttributes = new { @class = "form-control", @type = "Date" } })
+                        @Html.ValidationMessageFor(model => model.Fecha_Entrada, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Fecha Salida", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Fecha_Salida, new { htmlAttributes = new { @class = "form-control", @type = "Date" } })
+                        @Html.ValidationMessageFor(model => model.Fecha_Salida, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Completada, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Completada)
+                            @Html.ValidationMessageFor(model => model.Completada, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+            </dl>
+        </div>
+    </div>
+
+    <div class="form-group" style="padding-left:490px">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Crear" class="btn btn-success" />
+        </div>
+    </div>
+
+}

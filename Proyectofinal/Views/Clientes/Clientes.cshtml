@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Modelos.Clientes.Cliente>
+
+@{
+    ViewBag.Title = "Cliente";
+}
+<center>
+    <h2>Clientes</h2>
+
+    <p>
+        @Html.ActionLink("Nuevo Cliente", "InsertarCliente", null, new { @class = "btn btn-success" })
+    </p>
+</center>
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Correo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Identificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo_Identificacion)
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Identificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo_Identificacion)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Editar", "ModificarCliente", new { id = item.ID }, new { @class = "btn btn-warning" })|
+                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("Eliminar", "EliminarCliente", new { id = item.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

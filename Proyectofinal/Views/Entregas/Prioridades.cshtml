@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Modelos.Entregas.Prioridades>
+
+@{
+    ViewBag.Title = "Prioridades";
+}
+<center>
+    <h2>Prioridades</h2>
+
+    <p>
+        @Html.ActionLink("Nueva Prioridad", "InsertarPrioridad", null, new { @class = "btn btn-success" })
+    </p>
+</center>
+<div style="padding-left: 250px; padding-right: 250px">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Horas)
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Horas)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "ModificarPrioridad", new { id = item.ID }, new { @class = "btn btn-warning" }) |
+                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("Eliminar", "EliminarPrioridad", new { id = item.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

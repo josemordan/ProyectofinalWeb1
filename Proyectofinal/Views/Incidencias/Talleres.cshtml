@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Modelos.Incidencias.Taller>
+
+@{
+    ViewBag.Title = "Talles";
+}
+<center>
+    <h2>Talleres</h2>
+
+    <p>
+        @Html.ActionLink("Nuevo Taller", "InsertarTaller", null, new { @class = "btn btn-success" })
+    </p>
+</center>
+<div style="padding-left: 90px; padding-right: 90px">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "ModificarTaller", new { id = item.ID }, new { @class = "btn btn-warning" }) |
+                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
+                    @Html.ActionLink("Eliminar", "EliminarTaller", new { id = item.ID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
