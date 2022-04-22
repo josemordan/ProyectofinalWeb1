@@ -6,9 +6,41 @@
     <title>@ViewBag.Title - Proyecto Final</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <!-- <link rel="stylesheet" href="~/Content/css/StyleProject.css" /> -->
+    <style>
+        html {
+            min-height: 100%;
+            position: relative;
+        }
+        body {
+            font-family:sans-serif;
+            margin: 0;
+            margin-bottom: 40px;
+            background: url('https://images7.alphacoders.com/548/548306.jpg');
+            background-size:  cover;
+            background-repeat:no-repeat;
+            background-position: center;
+
+            /* background: #000428;
+            background: -webkit-linear-gradient(to right, #004e92, #000428);
+            background: linear-gradient(to right, #004e92, #000428); */
+
+        }
+
+        footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding-top:10px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
             @Html.ActionLink("Proyecto Final", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,13 +52,17 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+         
 
     <div class="container body-content">
+    <br/>
         @RenderBody()
-        <hr />
+
+        <br/><br/>
         <footer>
-            <p>&copy; @DateTime.Now.Year - Grupo #4</p>
+            <h6>&copy; @DateTime.Now.Year - Grupo No. 04 </h6>
         </footer>
     </div>
 
