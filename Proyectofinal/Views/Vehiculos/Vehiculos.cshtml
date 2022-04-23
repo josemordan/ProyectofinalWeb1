@@ -1,63 +1,71 @@
 ﻿@model IEnumerable<Modelos.Vehiculos.Vehiculo>
 
 @{
-    ViewBag.Title = "Vehiculos";
+    ViewBag.Title = "Listado de Vehículos";
 }
-<center>
-    <h2>Vehiculos</h2>
 
-    <p>
-        @Html.ActionLink("Nuevo Vehiculo", "InsertarVehiculo", null, new { @class = "btn btn-success" })
-    </p>
-</center>
-<div style="padding-left: 90px; padding-right: 90px">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Chasis)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Placa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Anio)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Modelo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Transmision)
-                </th>
-                <th></th>
-            </tr>
+<br />
+<div class="container animated 	pulse  " >
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Listado de Vehículos</h5>
+                    <p>
+                        @Html.ActionLink("Nuevo Vehículo", "InsertarVehiculo")
+                    </p>
+                </div>
+                <div class="container">
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Chasis)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Placa)
+                            </th>
+                            <th>Año</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Modelo)
+                            </th>
+                            <th>Transmisión</th>
+                            <th>
+                                Opciones Adicionales:
+                            </th>
 
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Chasis)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Placa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Anio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Modelo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Transmision)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "ModificarVehiculo", new { id = item.ID }, new { @class = "btn btn-warning" }) |
-                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
-                    @Html.ActionLink("Eliminar", "EliminarVehiculo", new { id = item.ID }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Chasis)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Placa)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Anio)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Modelo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Transmision)
+                                </td>
+ 
+                                <td>
+                                    <a class="text-white">@Html.ActionLink(" Editar ", "ModificarVehiculo", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                    @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
+                                    <a class="text-white">@Html.ActionLink("Eliminar", "EliminarVehiculo", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                </td>
+                            </tr>
+                        }
 
-    </table>
-</div>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
