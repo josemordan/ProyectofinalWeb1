@@ -1,57 +1,63 @@
 ﻿@model IEnumerable<Modelos.Empleados.Empleado>
 
 @{
-    ViewBag.Title = "Empleados";
+    ViewBag.Title = "Listado de Empleados";
 }
-<center>
-    <h2>Empleados</h2>
 
-    <p>
-        @Html.ActionLink("Nuevo Empleado", "InsertarEmpleado", null, new { @class = "btn btn-success" })
-    </p>
-</center>
-<div style="padding-left: 90px; padding-right: 90px">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cedula)
-                </th>
-                <th>
-                    @Html.DisplayName("Codigo Empleado")
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Correo)
-                </th>
-                <th></th>
-            </tr>
+<br />
+<div class="container animated 	pulse  " >
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Listado de Empleados</h5>
+                    <p>
+                        @Html.ActionLink("Nuevo Empleado", "InsertarEmpleado")
+                    </p>
+                </div>
+                <div class="container">
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre Completo</th>
+                            <th>Cédula</th>
+                            <th>Código de Empleado</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Correo)
+                            </th>
+                            <th>
+                                Opciones Adicionales:
+                            </th>
 
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cedula)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Codigo_Empleado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Correo)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "ModificarEmpleado", new { id = item.ID }, new { @class = "btn btn-warning" }) |
-                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
-                    @Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.ID }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cedula)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Codigo_Empleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Correo)
+                                </td>
+                                <td>
+                                    <a class="text-white">@Html.ActionLink(" Editar ", "ModificarEmpleado", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                    @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
+                                    <a class="text-white">@Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                </td>
+                            </tr>
+                        }
 
-    </table>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

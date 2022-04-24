@@ -55,20 +55,21 @@
         </div>
     </nav> -->
 
-         
+
 
     <div class="container body-content">
-    <br/>
+        <br />
         @RenderBody()
 
-        <br/><br/>
+        <br /><br />
         <footer>
             <h6>&copy; @DateTime.Now.Year - Grupo No. 04 </h6>
         </footer>
     </div>
-
+    <script src="~/Scripts/customJS.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

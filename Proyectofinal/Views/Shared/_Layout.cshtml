@@ -159,7 +159,7 @@
     @if (ViewData["ERROR"] != null)
     {
         <div class="container">
-            <div class="alert alert-danger">
+            <div class="alert alert-danger text-center">
                 @ViewData["ERROR"]
             </div>
         </div>
@@ -168,7 +168,7 @@
     {
 
         <div class="container">
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center">
                 @ViewData["GOOD"]
             </div>
         </div>
@@ -177,7 +177,7 @@
     {
 
         <div class="container">
-            <div class="alert alert-info">
+            <div class="alert alert-info text-center">
                 @ViewData["INFO"]
             </div>
         </div>
@@ -191,8 +191,7 @@
         </footer>
     </div>
 
-    </div>
-
+    <script src="~/Scripts/customJS.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
