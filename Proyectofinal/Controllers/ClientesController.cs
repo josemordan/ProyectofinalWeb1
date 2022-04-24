@@ -72,7 +72,7 @@ namespace Proyectofinal.Controllers
             try
             {
                 _clientesDataContext.ActualizarClientes(cliente);
-                MensajeSucces = "Cliente Actualizad0";
+                MensajeSucces = "Cliente Actualizado";
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace Proyectofinal.Controllers
             try
             {
                 _clientesDataContext.BorrarClientes(id);
-                MensajeSucces = "Incidencia Borrada";
+                MensajeSucces = "Cliente Borrado";
             }
             catch (Exception ex)
             {

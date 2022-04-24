@@ -1,70 +1,74 @@
 ﻿@model IEnumerable<Modelos.Clientes.Cliente>
 
+
 @{
-    ViewBag.Title = "Cliente";
+    ViewBag.Title = "Listado de Clientes";
 }
-<center>
-    <h2>Clientes</h2>
 
-    <p>
-        @Html.ActionLink("Nuevo Cliente", "InsertarCliente", null, new { @class = "btn btn-success" })
-    </p>
-</center>
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Direccion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Correo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Telefono)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Identificacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tipo_Identificacion)
-                </th>
-                <th></th>
-            </tr>
+<br />
+<div class="container animated 	pulse  " >
+    <div class="row justify-content-md-center">
+        <div class="col-md-12">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Listado de Clientes</h5>
+                    <p>
+                        @Html.ActionLink("Nuevo Cliente", "InsertarCliente")
+                    </p>
+                </div>
+                <div class="container">
+                    <table class="table">
+                        <tr>
+                            <th>ID</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>Dirección</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Correo)
+                            </th>
+                            <th>Teléfono</th>
+                            <th>Identificación</th>
+                            <th>Tipo Identificación</th>
+                            <th>
+                                Opciones Adicionales
+                            </th>
 
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Direccion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Correo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Identificacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Tipo_Identificacion)
-                </td>
-                <td>
-
-                    @Html.ActionLink("Editar", "ModificarCliente", new { id = item.ID }, new { @class = "btn btn-warning" })|
-                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
-                    @Html.ActionLink("Eliminar", "EliminarCliente", new { id = item.ID }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
-
-    </table>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Correo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Identificacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tipo_Identificacion)
+                                </td>
+ 
+                                <td>
+                                    <a class="text-white">@Html.ActionLink(" Editar ", "ModificarCliente", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                    @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
+                                    <a class="text-white">@Html.ActionLink("Eliminar", "EliminarCliente", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
