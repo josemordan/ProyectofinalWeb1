@@ -4,28 +4,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Proyecto Final </title>
+    <link rel="stylesheet" href="~/Content/Site.css" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <!-- <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
-     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
     <style>
         html {
             min-height: 100%;
             position: relative;
         }
+
         body {
-            
+            padding-top: 0px;
             margin: 0;
             margin-bottom: 40px;
             background: #000428;
             background: -webkit-linear-gradient(to right, #004e92, #000428);
             background: linear-gradient(to right, #004e92, #000428);
-
         }
-        nav{
-            margin-top:0;
+
+        nav {
+            margin-top: 0;
+            background-color: black;
         }
 
         footer {
@@ -36,15 +39,15 @@
             background-color: black;
             color: white;
             text-align: center;
-            padding-top:10px;
+            padding-top: 10px;
         }
     </style>
 </head>
 <body>
- <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark"> -->
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+ <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
+    @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"> *@
         <div class="container">
-            @Html.ActionLink("Proyecto Final", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Sistema de Vehículo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -189,6 +192,8 @@
             <h6>&copy; @DateTime.Now.Year - Grupo No. 04 </h6>
         </footer>
     </div>
+
+  
 
     <script src="~/Scripts/customJS.js"></script>
     @Scripts.Render("~/bundles/jquery")

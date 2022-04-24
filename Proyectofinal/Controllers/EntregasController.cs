@@ -144,7 +144,7 @@ namespace Proyectofinal.Controllers
             try
             {
                 _entregasDataContext.InsertaPrioridad(prioridade);
-                MensajeSucces = "Priodirada Agregada";
+                MensajeSucces = "Prioridad Agregada";
             }
             catch (Exception ex)
             {
@@ -174,7 +174,7 @@ namespace Proyectofinal.Controllers
             try
             {
                 _entregasDataContext.ActualizarPrioridad(prioridad);
-                MensajeSucces = "Priodirada Modificada";
+                MensajeSucces = "Prioridad Modificada";
             }
             catch (Exception ex)
             {
@@ -189,7 +189,7 @@ namespace Proyectofinal.Controllers
             try
             {
                 _entregasDataContext.BorrarPrioridad(id);
-                MensajeSucces = "Priodirada Borrada";
+                MensajeSucces = "Prioridad Borrada";
             }
             catch (Exception ex)
             {

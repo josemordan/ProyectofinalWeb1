@@ -1,45 +1,63 @@
 ﻿@model IEnumerable<Modelos.Entregas.Prioridades>
 
 @{
-    ViewBag.Title = "Prioridades";
+    ViewBag.Title = "Listado de Prioridades";
 }
-<center>
-    <h2>Prioridades</h2>
 
-    <p>
-        @Html.ActionLink("Nueva Prioridad", "InsertarPrioridad", null, new { @class = "btn btn-success" })
-    </p>
-</center>
-<div style="padding-left: 250px; padding-right: 250px">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Horas)
-                </th>
-                <th></th>
-            </tr>
+<br />
+<div class="container animated 	pulse">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Listado de Prioridades</h5>
+                    <p>
+                        @Html.ActionLink("Nueva Prioridad", "InsertarPrioridad")
+                    </p>
+                </div>
+                <div class="card-body">
+                    
+                    <table class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Horas)
+                            </th>
+                                
+                            <th>
+                                Opciones Adicionales
+                            </th>
+                        </tr>
 
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Horas)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "ModificarPrioridad", new { id = item.ID }, new { @class = "btn btn-warning" }) |
-                    @*@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-info" }) |*@
-                    @Html.ActionLink("Eliminar", "EliminarPrioridad", new { id = item.ID }, new { @class = "btn btn-danger" })
-                </td>
-            </tr>
-        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Horas)
+                                </td>
+                                <td>
+                                    <div>
 
-    </table>
+                                        <a class="text-white">@Html.ActionLink("Editar", "ModificarPrioridad", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                        @* <a class="text-white">@Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })</a> *@
+                                        <a class="text-white">@Html.ActionLink("Eliminar", "EliminarPrioridad", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
