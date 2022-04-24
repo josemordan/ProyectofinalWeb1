@@ -1,32 +1,64 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Bienvenida";
 }
 
-<div class="jumbotron" style="background-color:grey">
+<br />
+<div class="jumbotron" style="background-color:#F5A8AF">
     <center>
-        <h1>Grupo #4</h1>
-        <p class="lead">Trabajo Final Programacion Web 1</p>
+        <h1>Sistema de Vehículo</h1>
+        <h5 class="lead">Proyecto Final Programación Web I</h5>
     </center>
 </div>
 
-@*<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<br />
+<div class="container" align="center" style="right:1000px">
+    <div class="row">
+        <div class="col-md-4 animated zoomInLeft ">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-info text-white text-center">
+                     <h4>Empleados</h4>
+                </div>
+                <div class="card-body">
+                    <img style="width:180px; height:170px;" src="https://thumbs.dreamstime.com/b/icono-de-mezcla-para-el-documento-correcto-y-registro-la-aprobaci%C3%B3n-casilla-verificaci%C3%B3n-marcar-183373539.jpg" />
+                    <P class="text-justify">En este módulo se registraran todo lo referente al empleado. </P>
+                    <a class="text-white btn btn-info btn-block" href="~/Empleados/InsertarCargo"><b>Cargo</b></a>
+                    <a class="text-white btn btn-info btn-block" href="~/Empleados/InsertarDepartamento"><b>Departamento</b></a>
+                    <a class="text-white btn btn-info btn-block" href="~/Empleados/InsertarEmpleado"><b>Empleado</b></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 animated zoomInLeft">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-warning text-white text-center">
+                   <h4 class="text-shadow">Vehículos</h4>
+                </div>
+                <div class="card-body">
+                    <img style="width:150px; height:150px" src="https://www.arqhys.com/wp-content/uploads/2016/12/Tipos-de-mantenimiento..jpg" /><br /><br />
+                    <P class="text-justify">Este módulo consiste en registrar cada una de las partes que afectan al vehículo.</P>
+                    <a class="text-white btn btn-warning btn-block" href="~/Vehiculos/InsertarColor"><b>Color</b></a>
+                    <a class="text-white btn btn-warning btn-block" href="~/Incidencias/InsertarIncidencia"><b>Incidencia</b></a>
+                    <a class="text-white btn btn-warning btn-block" href="~/Vehiculos/InsertarMarca"><b>Marca</b></a>
+                    <a class="text-white btn btn-warning btn-block" href="~/Vehiculos/InsertarModelos"><b>Modelo</b></a>
+                    <a class="text-white btn btn-warning btn-block" href="~/Incidencias/InsertarTaller"><b>Taller</b></a>
+                    <a class="text-white btn btn-warning btn-block" href="~/Vehiculos/InsertarVehiculo"><b>Vehículo</b></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 animated zoomInLeft " style="padding-bottom:50px">
+            <div class="card" style="border:0px">
+                <div class="card-header bg-success text-white text-center">
+                    <h4>Entregas</h4>
+                </div>
+                <div class="card-body ">
+                    <img style="width:200px; height:150px" src="https://transporte-inmediato.com/wp-content/uploads/2020/12/entregas-a-domicilio-1080x675.jpg" /><br /><br />
+                    <P class="text-justify">En este módulo se van a registrar los procesos de entregas, sus prioridades y los clientes.</P>
+                    <a class="text-white btn btn-success btn-block" href="~/Clientes/InsertarCliente"><b>Cliente</b></a>
+                    <a class="text-white btn btn-success btn-block" href="~/Entregas/InsertarEntrega"><b>Entrega</b></a>
+                    <a class="text-white btn btn-success btn-block" href="~/Entregas/InsertarPrioridad"><b>Prioridad</b></a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>*@
+</div>
