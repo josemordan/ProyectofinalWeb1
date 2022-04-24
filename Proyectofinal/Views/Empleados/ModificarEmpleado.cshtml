@@ -19,6 +19,7 @@
                     <div class="card-body">
                         <div class="form-horizontal">
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.ID)
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -96,7 +97,7 @@
                             <Center> 
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-14">
-                                        <input type="submit" value="Registrar" class="btn btn-warning btn-block" />
+                                        <input type="submit" value="Guardar Cambios" class="btn btn-warning btn-block" />
                                     </div>
                                 </div>
                             </Center>
