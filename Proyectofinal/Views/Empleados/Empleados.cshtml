@@ -5,7 +5,7 @@
 }
 
 <br />
-<div class="container animated 	pulse  " >
+<div class="container animated 	pulse  ">
     <div class="row justify-content-md-center">
         <div class="col-md-12">
             <div class="card" style="border:0px">
@@ -14,6 +14,12 @@
                     <p>
                         @Html.ActionLink("Nuevo Empleado", "InsertarEmpleado")
                     </p>
+                    <div class="row">
+                        <div class="col-md-4 input-group">
+                            <label>Buscar: </label>
+                            <input id="filtro" type="text" Placeholder="buscardor" />
+                        </div>
+                    </div>
                 </div>
                 <div class="container">
                     <table class="table">
@@ -28,36 +34,49 @@
                             <th>
                                 Opciones Adicionales
                             </th>
-
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Cedula)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Codigo_Empleado)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Correo)
-                                </td>
-                                <td>
-                                    <a class="text-white">@Html.ActionLink(" Editar ", "ModificarEmpleado", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
-                                    @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
-                                    <a class="text-white">@Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
-                                </td>
-                            </tr>
-                        }
-
+                        <tbody id="tblss">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cedula)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Codigo_Empleado)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Correo)
+                                    </td>
+                                    <td>
+                                        <a class="text-white">@Html.ActionLink(" Editar ", "ModificarEmpleado", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                        @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
+                                        <a class="text-white">@Html.ActionLink("Eliminar", "EliminarEmpleado", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#filtro").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tblss tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

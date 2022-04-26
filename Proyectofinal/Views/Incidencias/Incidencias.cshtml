@@ -5,7 +5,7 @@
 }
 
 <br />
-<div class="container animated 	pulse  " >
+<div class="container animated 	pulse  ">
     <div class="row justify-content-md-center">
         <div class="col-md-12">
             <div class="card" style="border:0px">
@@ -14,6 +14,12 @@
                     <p>
                         @Html.ActionLink("Nueva Incidencia", "InsertarIncidencia")
                     </p>
+                    <div class="row">
+                        <div class="col-md-4 input-group">
+                            <label>Buscar: </label>
+                            <input id="filtro" type="text" Placeholder="buscardor" />
+                        </div>
+                    </div>
                 </div>
                 <div class="container">
                     <table class="table">
@@ -36,49 +42,63 @@
                             <th>
                                 <div align="center">Opciones</div>
                             </th>
-
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Vehiculo)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Taller)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Descripcion)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Fecha_Entrada)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Fecha_Salida)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Completada)
-                                </td>
-                                <td>
-                                    <div align="center">
-                                        @{
-                                            if (!item.Completada)
-                                            {
-                                                <a class="text-white">@Html.ActionLink("Editar", "ModificarIncidencia", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
-                                                @* <a class="text-white">@Html.ActionLink("  Editar", "ModificarIncidencia", new { id = item.ID }, new { @class = "btn btn-warning btn-block" })</a> *@
+                        <tbody id="tblss">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Vehiculo)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Taller)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha_Entrada)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha_Salida)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Completada)
+                                    </td>
+                                    <td>
+                                        <div align="center">
+                                            @{
+                                                if (!item.Completada)
+                                                {
+                                                    <a class="text-white">@Html.ActionLink("Editar", "ModificarIncidencia", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                                    @* <a class="text-white">@Html.ActionLink("  Editar", "ModificarIncidencia", new { id = item.ID }, new { @class = "btn btn-warning btn-block" })</a> *@
+                                                }
                                             }
-                                        }       
-                                        @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
-                                        <a class="text-white">@Html.ActionLink("Eliminar", "EliminarIncidencia", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        }
+                                            @* <br /> <a class="text-white">@Html.ActionLink(" Detalles ", "Details", new { id = item.ID }, new { @class = "btn btn-success" })</a> *@
+                                            <a class="text-white">@Html.ActionLink("Eliminar", "EliminarIncidencia", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#filtro").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tblss tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

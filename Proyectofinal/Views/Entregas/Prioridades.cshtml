@@ -14,9 +14,15 @@
                     <p>
                         @Html.ActionLink("Nueva Prioridad", "InsertarPrioridad")
                     </p>
+                    <div class="row">
+                        <div class="col-md-4 input-group">
+                            <label>Buscar: </label>
+                            <input id="filtro" type="text" Placeholder="buscardor" />
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    
+
                     <table class="table">
                         <tr>
                             <th>No.</th>
@@ -26,38 +32,52 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Horas)
                             </th>
-                                
+
                             <th>
                                 Opciones Adicionales
                             </th>
                         </tr>
+                        <tbody id="tblss">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Horas)
+                                    </td>
+                                    <td>
+                                        <div>
 
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Nombre)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Horas)
-                                </td>
-                                <td>
-                                    <div>
+                                            <a class="text-white">@Html.ActionLink("Editar", "ModificarPrioridad", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                            @* <a class="text-white">@Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })</a> *@
+                                            <a class="text-white">@Html.ActionLink("Eliminar", "EliminarPrioridad", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                        </div>
 
-                                        <a class="text-white">@Html.ActionLink("Editar", "ModificarPrioridad", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
-                                        @* <a class="text-white">@Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })</a> *@
-                                        <a class="text-white">@Html.ActionLink("Eliminar", "EliminarPrioridad", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
-                                    </div>
-                                    
-                                </td>
-                            </tr>
-                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#filtro").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tblss tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

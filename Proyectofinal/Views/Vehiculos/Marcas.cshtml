@@ -14,6 +14,13 @@
                     <p>
                         @Html.ActionLink("Nueva Marca", "InsertarMarca")
                     </p>
+
+                    <div class="row">
+                        <div class="col-md-4 input-group">
+                            <label>Buscar: </label>
+                            <input id="filtro" type="text" Placeholder="buscardor" />
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -22,27 +29,42 @@
                             <th>@Html.DisplayNameFor(model => model.Nombre)</th>
                             <th> Opciones Adicionales</th>
                         </tr>
-                        @foreach (var item in Model)
-                        {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nombre)
-                            </td>
-                            <td>
-                                <div>
-                                    <a class="text-white">@Html.ActionLink("Editar", "ModificarMarca", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
-                                    @* <a class="text-white">@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })</a> *@
-                                    <a class="text-white">@Html.ActionLink("Eliminar", "EliminarMarca", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
-                                </div>
-                            </td>
-                        </tr>
-                        }
+                        <tbody id="tblss">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <a class="text-white">@Html.ActionLink("Editar", "ModificarMarca", new { id = item.ID }, new { @class = "btn btn-warning" })</a>
+                                            @* <a class="text-white">@Html.ActionLink("Detalles", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })</a> *@
+                                            <a class="text-white">@Html.ActionLink("Eliminar", "EliminarMarca", new { id = item.ID }, new { @class = "btn btn-danger" })</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#filtro").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tblss tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}
