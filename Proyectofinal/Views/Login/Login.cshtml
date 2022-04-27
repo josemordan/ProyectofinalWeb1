@@ -11,9 +11,8 @@
             @ViewData["ERROR"]
         </div>
     }
-    <br /><br /><br />
     <div class="row justify-content-md-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="card" style="border:0px">
                 <div class="card-header bg-dark text-white text-center">
                     <h5>Iniciar Sesión</h5>
@@ -24,6 +23,8 @@
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
+                            <img style="width:150px; height:140px; margin-bottom:10px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-adgmVT8ehLnb1kS3_OC3sy8ejjWjvXChQvuTWeGZI1HBaBeWhVtDKdJLev5duMoambU&usqp=CAU" />
+                            <br/>  
                             <b> @Html.LabelFor(model => model.Usuario) </b>
                             @Html.TextBoxFor(model => model.Usuario, "", new { @class = "form-control" })
 
